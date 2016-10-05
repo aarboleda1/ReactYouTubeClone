@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 //es6 version of a class
+
+//this is an example of a class based component;
 class SearchBar extends Component {
   constructor(props) {
   	super(props);
   	//properties we want to store on the state
   	//right now, state is an empy string inside the search bar
-  	this.state = { term: ' i am the starting value' };
+    //in a classbase component set your state inside the constructor  
+  	this.state = { term: '' };
   }
 
   render() {

@@ -1,9 +1,9 @@
 import React from 'react';
 import VideoListItem from './video_list_item';
 
-
+//this is an example of a functional based component
 const VideoList = (props) => {
-	console.log(props)
+	//console.log(props)
 	const videoItems = props.videos.map((video) => {
 		return ( <VideoListItem 
 		onVideoSelect={props.onVideoSelect}

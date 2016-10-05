@@ -8,7 +8,8 @@ import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
-const API_KEY = 'AIzaSyC-6asu_xhVnmz1heN69I3aPNLm9lUvpbw'
+const API_KEY = 'AIzaSyDEPPKB5Ln2vXVA-K1rkG92h6Z-M7BpXvk'
+
 //this is the main App that we have running
 class App extends Component {
   constructor(props){
@@ -18,7 +19,7 @@ class App extends Component {
   		videos: [],
   		selectedVideo: null
   	};
-  	this.videoSearch('surfboards');
+  	this.videoSearch('');
   }
 
   //this is a method to search for videos
