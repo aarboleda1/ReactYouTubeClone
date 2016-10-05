@@ -16,7 +16,9 @@ class SearchBar extends Component {
     	<input
     	  //value is equivalent to the text in the search bar	
     	  value={this.state.term}
-    	  onChange={event => this.onInputChange( event.target.value )} />
+    	  //changing the value of the input
+        //whenever content of input changes, it calls this method with new input value
+        onChange={event => this.onInputChange( event.target.value )} />
     	</div>
   	);
   }

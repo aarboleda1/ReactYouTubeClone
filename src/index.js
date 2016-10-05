@@ -1,8 +1,9 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search'
 //if importing a file that we created, must write down the whole path
 //if a library imported from npm, just need to refer to its name
-import YTSearch from 'youtube-api-search'
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
@@ -34,9 +35,12 @@ class App extends Component {
 
   //this render method fires asynchronously
   render() {
+  //_.debounce is a lodash method that takes a function and only lets it be called every 300 seconds
+	const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
+
 	return ( 
 	  <div>
-		<SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+		<SearchBar onSearchTermChange={videoSearch} />
 		<VideoDetail video={this.state.selectedVideo} />
 		<VideoList 
 		  onVideoSelect={selectedVideo => this.setState({selectedVideo})  }	
