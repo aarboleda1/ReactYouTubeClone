@@ -5,8 +5,8 @@ const VideoDetail = ({video}) => {
   	 return <div>Loading...</div>;
   };
 
-  const videoID = video.id.videoID;
-  const url = `https://www.youtube.com/embed/${videoID}`; //this is just a form of es6 string interpolation
+  const videoId = video.id.videoId;
+  const url = `https://www.youtube.com/embed/${videoId}`; //this is just a form of es6 string interpolation
 
   
   return (
