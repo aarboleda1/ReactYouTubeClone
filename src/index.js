@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//Create a new component. This should produce some HTML
-const App = () =>{
-	return <div>Hi!</div>;
+//if importing a file that we created, must write down the whole path
+//if a library imported from npm, just need to refer to its name
+import YTSearch from 'youtube-api-search'
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
+
+const API_KEY = 'AIzaSyC-6asu_xhVnmz1heN69I3aPNLm9lUvpbw'
+
+class App extends Component {
+  constructor(props){
+  	super(props);
+
+  	this.state = { videos: [] };
+
+	YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+		this.setState({ videos });
+		//es6 shortcut for this.setState({ videos: videos })
+	});
+  }
+
+  render() {
+	return ( 
+	  <div>
+		<SearchBar />
+		<VideoDetail video={this.state.videos[0]} />
+		<VideoList videos={this.state.videos} />
+	  </div>
+	);
+  }
 }
 
 //Take this component's generated HTML and put it on the page
