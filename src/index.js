@@ -8,7 +8,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
 const API_KEY = 'AIzaSyC-6asu_xhVnmz1heN69I3aPNLm9lUvpbw'
-
+//this is the main App that we have running
 class App extends Component {
   constructor(props){
   	super(props);
@@ -18,6 +18,9 @@ class App extends Component {
   		selectedVideo: null
   	};
 
+  }
+  //this is a method to search for videos
+  videoSearch(term){
 	YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
 		this.setState({ 
 			videos: videos,
@@ -25,16 +28,17 @@ class App extends Component {
 		});
 		//es6 shortcut for this.setState({ videos: videos })
 	});
+  	
   }
-
+  //this render method fires asynchronously
   render() {
 	return ( 
 	  <div>
-		<SearchBar />
+		<SearchBar  />
 		<VideoDetail video={this.state.selectedVideo} />
 		<VideoList 
 		  onVideoSelect={selectedVideo => this.setState({selectedVideo})  }	
-		  viwdeos={this.state.videos} />
+		  videos={this.state.videos} />
 	  </div>
 	);
   }

@@ -12,13 +12,12 @@ class SearchBar extends Component {
   	//this runs when there is a change in the inputbar
   	//use this.setState to change state never assign it 
   	return ( 
-  	<div>
-
-  	<input
-  	  //value is equivalent to the text in the search bar	
-  	  value={this.state.term}
-  	  onChange={event => this.setState({term: event.target.value})} />
-  	</div>
+  	<div className="search-bar">
+    	<input
+    	  //value is equivalent to the text in the search bar	
+    	  value={this.state.term}
+    	  onChange={event => this.setState({term: event.target.value})} />
+    	</div>
   	);
   }
   //this is an eventHandler 
